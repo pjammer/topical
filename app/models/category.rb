@@ -1,6 +1,5 @@
 class Category < ActiveRecord::Base
   belongs_to :categorical, :polymorphic => :true
-  belongs_to :accounts
   has_many :forums
   validates_presence_of     :name, :position
   validates_uniqueness_of   :name, :case_sensitive => false

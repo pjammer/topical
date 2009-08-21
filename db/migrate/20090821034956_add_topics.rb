@@ -2,7 +2,7 @@ class AddTopics < ActiveRecord::Migration
   def self.up
     create_table :topics, :force => true do |t|
       t.integer :forum_id, :user_id, :last_post_id, :last_post_by
-      t.string :type, :title, 
+      t.string :type, :title 
       t.text :content
       t.integer  :views,          :default => 0
       t.integer  :messages_count, :default => 0 

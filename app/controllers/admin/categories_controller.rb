@@ -5,7 +5,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.xml
   def index
-    @categories = current_account.categories
+    @categories = Category.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +44,6 @@ class Admin::CategoriesController < ApplicationController
   # POST /categories.xml
   def create
     @category = Category.new(params[:category])
-    @category.account_id = current_account.id
     @category.position = 0
     respond_to do |format|
       if @category.save

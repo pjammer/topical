@@ -35,8 +35,6 @@ class TopicsController < ApplicationController
     @post = @topic.messages.build(params[:topic]) 
     @post.user = current_user
     @topic.forum_id = @forum.id
-    @topic.account_id = current_account.id
-    @post.account_id = current_account.id
     redirect_to forum_topic_url(@topic.forum_id, @topic) and return if @topic.save && @post.save
     @new_topic = @topic; render :action => "new"
   end

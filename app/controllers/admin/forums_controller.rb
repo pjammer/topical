@@ -5,7 +5,7 @@ class Admin::ForumsController < ApplicationController
   # GET /forums
   # GET /forums.xml
   def index
-    @categories = Category.find_all_by_account_id(current_account.id)
+    @categories = Category.all
     @messages_count = Forum.sum('messages_count')
     @topics_count = Forum.sum('topics_count')
   end
@@ -14,7 +14,7 @@ class Admin::ForumsController < ApplicationController
   # GET /forums/new.xml
   def new
     @forum = Forum.new
-     @all_categories = Category.find_all_by_account_id(current_account.id, :order => "name") 
+     @all_categories = Category.all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @forum }

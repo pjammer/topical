@@ -1,12 +1,11 @@
 class ForumsController < ApplicationController
   before_filter :load_forum, :only => [:show]
-  before_filter :account_forums_only, :only => [:show]
   # GET /forums
   # GET /forums.xml
   def index
-    @categories = current_account.categories
-    @messages_count = current_account.forums.sum('messages_count')
-    @topics_count = current_account.forums.sum('topics_count')
+    @categories = Category.all
+    @messages_count = Forum.sum('messages_count')
+    @topics_count = Forum.sum('topics_count')
     @forum = Forum.find(:all)
   end
 
@@ -26,11 +25,5 @@ class ForumsController < ApplicationController
   #loads forum first and then uses it in account_forums_only
   def load_forum
      @forum = Forum.find(params[:id], :include => :category)
-  end
-  def account_forums_only
-    unless @forum.category_id === Category.find_by_account_id(current_account.id).id
-      flash[:notice] = "Not your forum"
-      redirect_to root_url
-    end
   end
 end
