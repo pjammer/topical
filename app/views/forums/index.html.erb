@@ -3,7 +3,9 @@
   <span class="detail">&nbsp;|&nbsp;
     <%= pluralize(number_with_delimiter(@messages_count) || 0, 'Post') %> in 
     <%= pluralize(number_with_delimiter(@topics_count) || 0, 'Topic') %> &nbsp;|&nbsp;
+<!-- leaving this search here... will replace later
 <%= render :partial => "search/search", :locals => {:urly => forum_search_path} %>
+-->
   </span>
 </div>
 <% #View all topics, add from unsocial if needed. %>
@@ -47,7 +49,9 @@
       </tbody>  
     </table>
 <% end %>
+<!--
 <p>
   <% unless members_online.empty? %>
     Recent Visitors: <%= members_online.map { |u| link_to "#{h u.login}", u } * ", " %>
-  <% end %></p>
+  <% end %></p> 
+-->

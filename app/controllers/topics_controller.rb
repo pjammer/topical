@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  unloadable
   before_filter :load_topic, :except => [:index, :new, :create, :unknown_request]
   before_filter :find_forum, :except => [:index]
   before_filter :allow_editting, :only => [:edit, :destroy]

@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  unloadable
   before_filter :login_required
   before_filter :has_role_admin
   layout "admin"

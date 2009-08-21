@@ -1,7 +1,8 @@
 class Admin::ForumsController < ApplicationController
- before_filter :login_required
- before_filter :has_role_admin
- layout "admin"
+  unloadable
+  before_filter :login_required
+  before_filter :has_role_admin
+  layout "admin"
   # GET /forums
   # GET /forums.xml
   def index

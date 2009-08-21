@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController 
-  
+  unloadable
   before_filter :find_topic_and_message, :except => [:new, :create]
 
   before_filter :can_edit, :only => [:edit, :update, :destroy]

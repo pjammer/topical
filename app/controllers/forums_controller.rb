@@ -1,4 +1,5 @@
 class ForumsController < ApplicationController
+  unloadable
   before_filter :load_forum, :only => [:show]
   # GET /forums
   # GET /forums.xml
