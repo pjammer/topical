@@ -1,0 +1,17 @@
+<%= error_messages_for :topic %>  
+<% form_for  @forum do |f| %>
+  <div class="box" id="box-topics-edit">
+    <span class="top">Edit Topic</span>
+    <p class="label"><label for="topic_title">Title</label></p>
+    <p>
+      <%= f.text_field :name, :style => "width:66%" %> &nbsp; 
+     </p><p><label for="topic_description">Decscription</label> 
+<%= f.text_field :description %>  </p>  <p>
+      <%= submit_tag "Save Changes", :disable_with => "Save Changes" %>&nbsp;
+      <%= link_to 'Delete', admin_forum_path, :confirm => 'Are you sure?', :method => :delete %> &nbsp;
+      <%= link_to 'Cancel', admin_forum_path %>
+    </p>
+  </div>
+<% end %>
+
+<%= javascript_tag "$('topic_title').focus();" %>

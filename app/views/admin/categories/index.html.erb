@@ -1,0 +1,17 @@
+<h1>List of Forum Categories</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for category in @categories %>
+<tr><td><%= link_to category.name, edit_admin_category_path(category) %></td>
+    <td><%= link_to 'Destroy', [:admin, category], 
+      :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add a New Category', new_admin_category_path %> | <%= link_to 'Create a New Forum', new_admin_forum_path %>

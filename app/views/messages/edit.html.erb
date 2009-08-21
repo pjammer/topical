@@ -1,0 +1,18 @@
+<%= error_messages_for :message %>
+<% form_for @message do |f| %>
+  <div class="box" id="box-messages-edit">
+    <span class="top">Edit Post</span>
+    <p><%= f.text_area :content, :rows => '10', :style => 'width:66%;' %></p>
+    <p>
+      <%= submit_tag "Save Changes", :disable_with => "Save Changes" %>&nbsp;
+      
+       &nbsp;
+      <% if @topic.messages_count > 1 %>
+        <%= link_to 'Delete', message_path, :confirm => 'Are you sure?', :method => :delete %> &nbsp;
+      <% end %>
+      <%= link_to 'Cancel', topic_message_path(@message) %>
+    </p>
+  </div>
+<% end %>
+
+<%= javascript_tag "$('message_content').focus();" %>

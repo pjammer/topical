@@ -1,0 +1,82 @@
+8
+
+dir
+608
+http://eldorado.googlecode.com/svn/trunk/vendor/plugins/bbcodeizer
+http://eldorado.googlecode.com/svn
+
+
+
+2008-01-08T01:26:14.362824Z
+606
+trevorturk
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9c008b19-a030-0410-9975-d76d301b4276
+
+test
+dir
+
+Rakefile
+file
+
+
+
+
+2008-01-09T03:08:17.000000Z
+d1aa01e78972135709760f7f430e46d3
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+LICENSE
+file
+
+
+
+
+2008-01-09T03:08:17.000000Z
+bf6a21a8005e9ebe1c2c676995896380
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+init.rb
+file
+
+
+
+
+2008-01-09T03:08:17.000000Z
+100879331d151cd10ced92a0adfd2671
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+lib
+dir
+
+README
+file
+
+
+
+
+2008-01-09T03:08:17.000000Z
+80b49dc34fee1cc69707f14f6f51928d
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+

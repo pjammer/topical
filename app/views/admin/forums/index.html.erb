@@ -1,0 +1,50 @@
+<div class="header_forum">
+<div class="info-left">
+  <span class="title">Forum</span>
+  <span class="detail">&nbsp;|&nbsp;
+    <%= pluralize(number_with_delimiter(@messages_count) || 0, 'Post') %> in 
+    <%= pluralize(number_with_delimiter(@topics_count) || 0, 'Topic') %>
+  </span>
+  
+</div>
+<div class="info-right">
+  <span class="title">&nbsp;</span>
+ 
+</div>
+</div>
+<div style="clear:both;"> </div>
+
+<% for category in @categories %>
+    <table cellspacing="0" class="forums-index">
+      <thead>
+        <tr>
+          <th colspan="5"><%= link_to category.name, edit_admin_category_path(category) %></th>
+        </tr>
+        <tr class="forums-list">
+          <th class="tcl" colspan="2">Forums</th>
+          <th class="tcm">Topics</th>
+          <th class="tcm">Posts</th>
+          <th class="tcr">Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for forum in category.forums %>
+          <tr>
+			<td class='tci'></td>
+            <td class="tcl">
+              <span class="forum-name"><%= link_to h(forum.name), forum %></span>
+              <br /><%=h forum.description %>
+            </td>
+            <td class="tcm"><%= number_with_delimiter(forum.topics_count) %></td>
+            <td class="tcm"><%= number_with_delimiter(forum.messages_count) %></td>
+            <td class="tcr">
+			<%= link_to 'Edit', edit_admin_forum_path(forum) %>
+		    <%= link_to 'Destroy', [:admin, forum], 
+		      :confirm => 'Are you sure?', :method => :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>  
+    </table>
+<% end %>
+<span><%= link_to 'Add a Category', new_admin_category_path %></span> | <%= link_to 'Create a New Forum', new_admin_forum_path %> |  <span><%= link_to 'Add/Change RANKS shown in forum posts', admin_ranks_path %></span> | 

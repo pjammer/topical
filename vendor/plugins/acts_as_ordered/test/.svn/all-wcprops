@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test
+END
+acts_as_ordered_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/acts_as_ordered_test.rb
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/schema.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/database.yml
+END
+abstract_unit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/abstract_unit.rb
+END

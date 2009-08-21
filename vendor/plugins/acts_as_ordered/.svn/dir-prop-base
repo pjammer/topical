@@ -1,0 +1,17 @@
+K 21
+piston:local-revision
+V 3
+593
+K 22
+piston:remote-revision
+V 3
+327
+K 11
+piston:root
+V 61
+http://svn.viney.net.nz/things/rails/plugins/acts_as_ordered/
+K 11
+piston:uuid
+V 36
+20afb1e0-9c0e-0410-9884-91ed27886737
+END

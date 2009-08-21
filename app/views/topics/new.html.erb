@@ -1,0 +1,15 @@
+<%= error_messages_for :topic %>
+<% form_for(:topic, :url => forum_topics_path) do |f| %>
+  <div class="box" id="box-new-new">
+    <h1 class="top">New Topic</h1>
+    <p class="label"><label for="topic_title">Title</label></p>
+    <p><%= f.text_field :title, :style => "width:66%" %>
+    </p>
+ <p>
+    <%= f.label "Body" %></p><p>
+   <%= f.text_area :content, :rows => '8', :style => 'width:66%;' %></p>
+    <p>
+      <%= submit_tag "Post Topic", :disable_with => "Post Topic" %>&nbsp;
+    </p>
+  </div>
+<% end %>

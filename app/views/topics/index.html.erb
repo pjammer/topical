@@ -1,0 +1,85 @@
+<div class="header_forum">
+<% if current_controller == 'categories' %>
+  <div class="info-left">
+    <span class="title"><%=h @category.name %></span>
+    <span class="detail"> &laquo; <%= @forums.map { |f| link_to "#{h f.name}", f } * ", " %></span>
+  </div>
+<% elsif current_controller == 'forums' %>
+  <div class="info-left">
+    <span class="title"><%= link_to @forum.name, forum_path %></span>
+    <span class="detail">
+      &laquo; <%= link_to @forum.category.name, forums_path %>
+    </span>
+    <span class="detail">&nbsp;| &nbsp;<%=h @forum.description %></span>
+  <% end %>
+<span class"info-right">
+	<%= link_to "Back to Forum List", forums_path %><br /><br />
+  <% if !logged_in? %>
+    <p>Become a <%= link_to "Member", signup_path %>, or <%= link_to "Login", login_path %> to Post  Forum Messages</p>
+  <% else %>
+  <%= button_to 'Start a New Topic', new_forum_topic_path(@forum), :method => :get %>
+<%= render :partial => "search/search", :locals => {:urly => forum_search_path} %>
+<% end %>
+</span>
+  </div>
+</div>
+<div style="clear:both;"> </div>
+
+<% if !@topics.blank? %>
+  <table cellspacing="0" class="topics-index">
+    <thead>
+      <tr>
+        <th class="tcl" colspan="2">Topics</th>
+        <% if %w(categories topics).include?(current_controller) %>
+          <th class="tcl tcf">Forum</th>
+        <% end %>
+        <th class="tcm">Replies</th>
+        <% unless current_controller == 'home' %>
+          <th class="tcm">Views</th>
+        <% end %>
+        <th class="tcr">Activity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for topic in @topics %>
+        <tr>
+		  <td class="tci"></td>
+          <td class="tcl">
+            <%= link_to h(topic.title), forum_topic_path(topic.forum_id, topic) %> by <%=h topic.user.login %>
+          </td>
+          <% if %w(categories topics).include?(current_controller) %>
+            <td class="tcl">
+              <%= link_to topic.forum.name, forum_topic_path(topic.forum_id, topic) %>
+            </td>
+          <% end %>
+          <td class="tcm"><%= number_with_delimiter(topic.replies) %></td>
+          <% unless current_controller == 'home' %>
+            <td class="tcm"><%= number_with_delimiter(topic.views) %></td>
+          <% end %>
+          <td class="tcr">
+            <%= link_to time_ago_or_time_stamp(topic.last_post_at), show_new_forum_topic_path(topic.forum_id, topic) %> 
+ 			by <%=h topic.last_poster.login %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <% if current_controller == 'categories' %>
+    <div class="nav nav-footer">
+      <p class="nav-left">
+        <% if @category.forums.blank? %>
+          <%= link_to 'Create a New Forum &raquo;', new_forum_path(:category_id => @category.id) %>
+        <% else %>
+          <%= link_to 'Start a New Topic &raquo;', new_forum_topic_path %>
+        <% end %>
+      </p>
+    </div>
+  <% elsif current_controller == 'forums' %>
+    <div class="nav nav-footer">
+      <p class="nav-left"><%= link_to 'Start a New Topic &raquo;', new_forum_topic_path(:forum_id => @forum.id) %></p>
+    </div>
+  <% end %>
+<% end %>
+
+

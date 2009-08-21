@@ -1,0 +1,14 @@
+
+v.1.2 - Wed May 17 2007
+  - renamed syblings to siblings
+  - renamed self_and_syblings to self_and_siblings
+  - some other minor code changes
+  - updated tests
+
+  Note:
+    I attempted to rewrite the tests using fixtures,
+    but some of the tests were failing.
+    I presume this is due to fixtures not supporting
+    nested transactions. The results of this effort
+    can be found in the fixtures_not_working/ branch.
+

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures
+END
+category.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/category.rb
+END
+document.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/document.rb
+END
+documents.yml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/documents.yml
+END
+categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/categories.yml
+END
+cartoon.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/cartoon.rb
+END
+project.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/project.rb
+END
+cartoons.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/cartoons.yml
+END
+projects.yml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/585/trunk/vendor/plugins/acts_as_ordered/test/fixtures/projects.yml
+END

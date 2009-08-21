@@ -1,0 +1,79 @@
+8
+
+dir
+608
+http://eldorado.googlecode.com/svn/trunk/vendor/plugins/acts_as_ordered/test
+http://eldorado.googlecode.com/svn
+
+
+
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+9c008b19-a030-0410-9975-d76d301b4276
+
+acts_as_ordered_test.rb
+file
+
+
+
+
+2008-01-09T03:08:09.000000Z
+035e78a9c58fe0176e6d5908f134eb47
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+schema.rb
+file
+
+
+
+
+2008-01-09T03:08:09.000000Z
+8fc94106ed6c4dccebbbdfe0d9789663
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+database.yml
+file
+
+
+
+
+2008-01-09T03:08:09.000000Z
+c336fdb8f240fd5ff7d7e04e1b3ab76f
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+abstract_unit.rb
+file
+
+
+
+
+2008-01-09T03:08:09.000000Z
+ec1ef43302c43820126fd1f1512890b7
+2007-12-29T04:47:09.873125Z
+585
+trevorturk
+
+fixtures
+dir
+

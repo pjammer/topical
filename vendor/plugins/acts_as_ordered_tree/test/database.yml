@@ -1,0 +1,11 @@
+
+#database:
+#  adapter: mysql
+#  database: ordered_tree_test
+#  username: root
+#  password:
+#  host: localhost
+
+database:
+  adapter: sqlite3
+  database: ":memory:"

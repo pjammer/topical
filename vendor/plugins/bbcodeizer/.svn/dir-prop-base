@@ -1,0 +1,17 @@
+K 21
+piston:local-revision
+V 3
+584
+K 22
+piston:remote-revision
+V 1
+5
+K 11
+piston:root
+V 54
+svn://rubyforge.org/var/svn/agtools/plugins/bbcodeizer
+K 11
+piston:uuid
+V 36
+ca55cb89-291f-0410-9055-81c157bc9306
+END
