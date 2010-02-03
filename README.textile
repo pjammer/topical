@@ -14,7 +14,8 @@ Now, do the usual github stuff:
 script/plugin install git://github.com/pjammer/topical.git
 </pre>
 
-Copy the migration files to  your db/migrate directory (script pending)
+Copy the migration files using
+    rake topical:sync
 
 Change the two methods in lib/topical.rb based on the methods you use for user authentication plugin or gem.  These methods are:
 <pre>
@@ -39,6 +40,8 @@ class User < ActiveRecord::Base
 
 end
 </pre>
+
+Lastly, Topical has included a topical.css stylesheet for you, which you can use or just cut and paste into your existing stylesheets. Whatever man, just do something with it.
 
 h2. Help and Support
 

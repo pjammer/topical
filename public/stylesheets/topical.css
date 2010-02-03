@@ -1,0 +1,156 @@
+/* Forum Tables */
+table {
+  width: 100%;
+  border: 1px solid #a1ff7f;
+  margin-bottom: 10px;
+}
+
+thead th {
+  background: #a1ff7f;
+  color: #2b541c;
+  text-align: left;
+  font-weight: normal;
+  padding: 4px 5px;
+}
+
+thead th a:link, thead th a:visited {
+  color: #e5006e;
+}
+
+thead .tcm {
+  text-align: center;
+}
+
+tbody {
+  background: #f1f1f1;
+}
+
+tbody td {
+  padding: 5px;
+  vertical-align: top;
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+tbody .tci {
+  width: 10px !important;
+  border-right: 0;
+}
+
+tbody .tcm {
+  text-align: center;
+  background: #dedfdf;
+}
+
+.forums-index .tcm {
+	vertical-align: middle;
+}
+
+tbody .tcr {
+  border-right: 0;
+}
+
+tbody .tds {
+  border: 0;
+  padding: 10px;
+}
+
+.thread {
+  margin-bottom: 5px;
+}
+
+.thread td {
+  border: 0;
+}
+
+.thread .profile {
+  width: 24%;
+}
+
+.thread .body {
+  width: 76%;
+  line-height: 1.4em;
+  background: #dedfdf;
+}
+
+.thread .body p {
+  margin-top: 0;
+}
+
+.post-body, .post-body img {
+  overflow: hidden;
+}
+
+.thread dl {
+  margin: 0;
+}
+
+.thread dt {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.thread dd.rank {
+  font-weight: bold;
+}
+
+.thread dd.avatar {
+  margin: 8px 0 4px 0;
+}
+
+.thread .thr {
+  text-align: right;
+}
+
+.thread .links {
+  text-align: right;
+  color: #ccc;
+}
+
+.forums-index {
+  margin-bottom: 5px;
+}
+
+.forums-index .tcl {
+  width: 58%;
+}
+
+.forums-index .tcm {
+  width: 8%;
+}
+
+.forums-index .tcr {
+  width: 34%;
+  vertical-align: middle;
+}
+
+.forums-list th {
+  background: #d1d1d1;
+  color: #333;
+}
+
+.forums-admin ul ul {
+	margin-left: 15px;
+}
+
+.forums-admin ul ul li {
+	margin-bottom: 5px;
+}
+
+.forum-name {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.topics-index .tcm {
+  width: 7%;
+}
+
+.topics-index .tcr {
+  width: 27%;
+}
+
+.topics-index .tcf {
+    width: 14%;
+}
