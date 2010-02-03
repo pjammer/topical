@@ -1,0 +1,9 @@
+<h1>Your Forum Nickname</h1>
+<p>What nickname would you like to be called in the forum?</p>
+<% form_for arg, :url => nicknames_path do |f| -%>
+  <%= f.label :name, "Nickname used in Forum" %>
+  <%= f.text_field :name %>
+<p>
+	<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+</p>
+<% end -%>

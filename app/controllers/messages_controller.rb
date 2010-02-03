@@ -18,9 +18,9 @@ class MessagesController < ApplicationController
   def create
     @topic = Topic.find(params[:message][:topic_id])
     redirect_home unless @topic
-    @message = current_user.messages.build(params[:message])
+    @message = posting_user.messages.build(params[:message])
     if @topic.locked
-      redirect_to root_path and return false unless has_role_admin || (current_user == @topic.user)
+      redirect_to root_path and return false unless has_role_admin || (posting_user == @topic.nickname)
     end
     @topic.messages_count += 1 # hack to set last_page correctly
     if (@topic.messages << @message) 
@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
   end 
     
   def update 
-    @message.updated_by = current_user.id
+    @message.updated_by = posting_user.id
     if @message.update_attributes(params[:message]) 
       redirect_to topic_message_path(@message)
     else 
@@ -53,7 +53,7 @@ class MessagesController < ApplicationController
   end
   
   def quote
-    @content = "[quote=#{@message.user.login}]#{@message.content}[/quote]"
+    @content = "[quote=#{@message.nickname[:name]}]#{@message.content}[/quote]"
     @message = nil # clear message so form with create a new one
     render :template => "messages/new"
   end

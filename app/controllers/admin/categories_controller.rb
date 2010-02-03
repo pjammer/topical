@@ -1,8 +1,8 @@
 class Admin::CategoriesController < ApplicationController
   unloadable
-  before_filter :login_required
-  before_filter :has_role_admin
-  layout "admin"
+  before_filter :authenticate_area
+  # before_filter :has_role_admin
+  layout "static"
   # GET /categories
   # GET /categories.xml
   def index

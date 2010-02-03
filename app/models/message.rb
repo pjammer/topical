@@ -1,9 +1,9 @@
 class Message < ActiveRecord::Base
-  belongs_to :user,  :counter_cache => true
+  belongs_to :nickname,  :counter_cache => true
   belongs_to :topic, :counter_cache => true
-  belongs_to :editor, :foreign_key => "updated_by", :class_name => "User"
-  acts_as_rateable
-  validates_presence_of :user_id, :content
+  belongs_to :editor, :foreign_key => "updated_by", :class_name => "Nickname"
+  # acts_as_rateable
+  validates_presence_of :nickname_id, :content
   
   attr_accessor :title, :forum_id, :private, :locked, :sticky
   

@@ -3,12 +3,10 @@
   <span class="detail">&nbsp;|&nbsp;
     <%= pluralize(number_with_delimiter(@messages_count) || 0, 'Post') %> in 
     <%= pluralize(number_with_delimiter(@topics_count) || 0, 'Topic') %> &nbsp;|&nbsp;
-<!-- leaving this search here... will replace later
-<%= render :partial => "search/search", :locals => {:urly => forum_search_path} %>
--->
+
+<% #render :partial => "search/search", :locals => {:urly => forum_search_path} %>
   </span>
 </div>
-<% #View all topics, add from unsocial if needed. %>
 <div style="clear:both;"> </div>
 
 <% for category in @categories %>
@@ -41,7 +39,7 @@
 		                <% else %>
 		                  <%= time_ago_or_time_stamp(forum.last_topic.last_post_at) %>
 		                <% end %>
-               <br /> by <%=h forum.last_topic.last_poster.login %>
+               <br /> by <%=h Nickname.find(forum.last_topic.last_post_by).name %>
                <% end %>
             </td>
           </tr>
@@ -49,9 +47,3 @@
       </tbody>  
     </table>
 <% end %>
-<!--
-<p>
-  <% unless members_online.empty? %>
-    Recent Visitors: <%= members_online.map { |u| link_to "#{h u.login}", u } * ", " %>
-  <% end %></p> 
--->

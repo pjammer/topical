@@ -7,7 +7,7 @@
       <%= f.text_area :content, :value => @content, :rows => '8', :style => "width:66%;" %>
       <p>
         <%= submit_tag "Post Reply", :disable_with => "Post Reply" %>&nbsp; 
-        <%= link_to('Cancel', topic_message_path(params[:id])) if current_action == 'quote' %>
+
       </p>
     </div>
 <% end %>

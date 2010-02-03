@@ -1,0 +1,20 @@
+<h1>Listing ranks</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Min posts</th>
+  </tr>
+
+<% for rank in @ranks %>
+  <tr>
+    <td><%= link_to rank.title, edit_admin_rank_path(rank) %></td>
+    <td><%=h rank.min_posts %></td>
+    <td><%= link_to 'Destroy', [:admin, rank], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rank', new_admin_rank_path %> | <%= link_to "Back to Forum Section", admin_forums_path %>

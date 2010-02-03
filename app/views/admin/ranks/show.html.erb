@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @rank.title %>
+</p>
+
+<p>
+  <b>Min posts:</b>
+  <%=h @rank.min_posts %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_rank_path(@rank) %> |
+<%= link_to 'Back', admin_ranks_path %>

@@ -1,2 +1,38 @@
 h1. Topical - a simple forum engine
 
+Topical can be added to any rails app that uses some sort of User model.  Topical really doesn't give a shit what you use for
+an authentication plugin, just as long as you have SOME KIND of "current_user" type of method and a method that checks to see if a user is "logged_in?". E.g., in Clearance you use "current_user" and "signed_in?" respectively.
+
+You can even have two different 'types' of user models within the same app, say an Account and a User, and both models can access your forum with ease.
+
+h2. Installing the plugin
+
+Do the usual github stuff:
+
+<pre>
+script/plugin install git://github.com/pjammer/topical.git
+</pre>
+
+Copy the migration files (script pending)
+Change the two methods in lib/topical.rb based on the methods you use for user authentication plugin or gem.  These methods are:
+logged_in? and posting_user
+
+Adjust your User model (and any other model you'd like to access the forum, who need verification) to the following example:
+------------------------
+class User < ActiveRecord::Base
+  
+  has_many :topics, :through => :nickname
+  has_one :nickname, :as => :nameable
+  has_many :messages, :through => :nickname
+  
+  attr_accessible :nickname_attributes
+  accepts_nested_attributes_for :nickname, :allow_destroy => true 
+
+end
+------------------------
+
+h2. Help and Support
+
+Use the github issues area for any bugs/features you'd like fixed/requested.  Update the Wiki too, if you would like to help other users out.
+
+Thanks.

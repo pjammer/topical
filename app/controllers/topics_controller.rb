@@ -14,8 +14,8 @@ class TopicsController < ApplicationController
   # end
 
   def show
-    redirect_to login_path if (!logged_in? && @topic.private)
-    @posts = @topic.messages.paginate(:page => params[:page], :include => :user)
+    # redirect_to login_path if (!logged_in? && @topic.private)
+    @posts = @topic.messages.paginate(:page => params[:page], :include => :nickname)
     redirect_to @topic if @posts.blank? # if params[:page] is too big, no posts will be found
     @page = params[:page] ? params[:page] : 1
     @previous_topic = @topic.previous
@@ -32,9 +32,9 @@ class TopicsController < ApplicationController
 
   def create
     
-    @topic = current_user.topics.build(params[:topic])
+    @topic = posting_user.topics.build(params[:topic])
     @post = @topic.messages.build(params[:topic]) 
-    @post.user = current_user
+    @post.nickname = posting_user
     @topic.forum_id = @forum.id
     redirect_to forum_topic_url(@topic.forum_id, @topic) and return if @topic.save && @post.save
     @new_topic = @topic; render :action => "new"
@@ -65,10 +65,10 @@ class TopicsController < ApplicationController
   end
   
   def show_posters
-    @posters = @topic.mesesages.map(&:user) ; @posters.uniq!
+    @posters = @topic.messages.map(&:nickname) ; @posters.uniq!
     render :update do |page| 
       page.toggle :posters
-      page.replace_html 'posters', "#{@posters.map { |u| "#{h u.login}" } * ', ' }" 
+      page.replace_html 'posters', "#{@posters.map { |u| "#{h u.name}" } * ', ' }" 
     end 
   end
   

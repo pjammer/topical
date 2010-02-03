@@ -1,0 +1,19 @@
+<h1>New rank</h1>
+
+<% form_for([:admin, @rank]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :min_posts %><br />
+    <%= f.text_field :min_posts %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', admin_ranks_path %>

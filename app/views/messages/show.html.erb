@@ -2,12 +2,12 @@
 <table class="thread" cellspacing="0" id="p<%= post.id %>">
   <thead>
     <tr>
-     <th>Posted - <%= time_ago_or_time_stamp(post.created_at, TzTime.now, true, true) %></th>
+     <th>Posted - <%= time_ago_or_time_stamp(post.created_at, Time.now, true, true) %></th>
       <th class="thr">
-        <% if %w(search posts).include?(current_controller) %>
+        <% if controller_name == "messages" %>
           <%= link_to post.topic.title + ' &raquo;', topic_message_path(post) %>
         <% else %>
-          <%= " #" + (index).to_s %>
+          		<%= " #" + (index).to_s  %>
         <% end %>
       </th>
     </tr>
@@ -16,18 +16,12 @@
     <tr>
      <td class="profile">
        <dl>
-         <dt><%= link_to h(post.user.login), profile_path(post.user.login) %></dt>
-         <dd class="rank"><%= rank_for(post.user) %></dd>
-         <dd class="avatar">
-          <%= avatar_for(post.user) %>
-         </dd>
-         <dd>Registered: <%= post.user.created_at.strftime("%b, %Y") %></dd>
-         <% if post.user.is_online? %>
-            <dd>Online</dd>
-			<% else %>
-			<dd>Offline</dd>
-          <% end %>
-         <dd>Posts: <%= post.user.messages_count %></dd>
+         <dt><%= post.nickname.name %></dt>
+         <dd class="rank"><%= rank_for(post.nickname) %></dd>
+         <dd><% # image_tag post.nickname.name.gravatar_url %></dd>
+         <dd>Registered: <%= post.nickname.created_at.strftime("%b, %Y") %></dd>
+
+         <dd>Posts: <%= post.nickname.messages_count %></dd>
        </dl>
      </td>
 	<td class="body">
@@ -36,7 +30,7 @@
           <% if (post.updated_at > post.created_at + 5.minutes) %>
             <p class="edited">
               Last edited <%= post.updated_at.strftime("%b, %d, %Y") %>
-              <%= 'by ' + post.editor.login unless post.editor.nil? %>
+              <%= 'by ' + post.editor.name unless post.editor.nil? %>
             </p>
           <% end %>
         </div>
@@ -51,23 +45,13 @@
           <%= link_to_function 'Link', "$('post-link-#{post.id}').toggle();$('post-links-#{post.id}').toggle();" %>
         </span>
         <span id="post-links-<%= post.id %>" style="display:none;">
-          <%= link_to 'Post', post %>
+		  &nbsp; <%= link_to 'Show Message', message_path(post) %>
           &nbsp; <%= link_to 'Topic', topic_message_path(post) %>
           &nbsp; <%= link_to_function '(x)', "$('post-link-#{post.id}').toggle();$('post-links-#{post.id}').toggle();" %>
         </span>   
-        <% if current_controller == 'search' %>
-          <% if logged_in? && !post.topic.locked %>
-            &nbsp; <%= link_to 'Quote', quote_message_path(post) %>
-          <% end %>
-        <% else %>
-          <% if logged_in? && !@topic.locked %>
-            &nbsp; <%= link_to 'Quote', quote_message_path(post) %>
-          <% end %>
-        <% end %>
         <% if can_edit?(post) %>
           &nbsp; <%= link_to 'Edit', edit_message_path(post) %>
         <% end %>
-       
       </td>
     </tr>
   </tbody>

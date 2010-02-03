@@ -1,17 +1,17 @@
 class Topic < ActiveRecord::Base
     has_many :messages, :order => 'messages.created_at', :dependent => :destroy 
-    has_many :posters, :through => :messages, :source => :user, :uniq => true
-    belongs_to :user
+    has_many :posters, :through => :messages, :source => :nickname, :uniq => true
+    belongs_to :nickname
     belongs_to :forum, :counter_cache => true
     belongs_to :last_post, :foreign_key => "last_post_id", :class_name => "Message"
-    belongs_to :last_poster, :foreign_key => "last_post_by", :class_name => "User"
+    belongs_to :last_poster, :foreign_key => "last_post_by", :class_name => "Nickname"
 
-    validates_presence_of :user_id, :title
+    validates_presence_of :nickname_id, :title
 
     acts_as_ordered :order => 'last_post_id'
 
     attr_accessor :content
-    named_scope :listing, :include => [:user, :last_poster], :order =>"last_post_at desc", :limit => 6
+    named_scope :listing, :include => [:nickname, :last_poster], :order =>"last_post_at desc", :limit => 6
     # attr_accessible :title, :private, :locked, :sticky, :forum_id, :body
 
     PER_PAGE = 15
@@ -21,7 +21,7 @@ class Topic < ActiveRecord::Base
     end
 
     def posters
-      messages.map { |p| p.user_id }.uniq.size
+      messages.map { |p| p.nickname_id }.uniq.size
     end
 
     def updated_at
@@ -39,7 +39,7 @@ class Topic < ActiveRecord::Base
     def update_cached_fields
       message = messages.find(:first, :order => 'messages.created_at desc')
       return if message.nil? # return if this was the last post in the thread
-      self.class.update_all(['last_post_id = ?, last_post_at = ?, last_post_by = ?', message.id, message.created_at, message.user_id], ['id = ?', self.id])
+      self.class.update_all(['last_post_id = ?, last_post_at = ?, last_post_by = ?', message.id, message.created_at, message.nickname_id], ['id = ?', self.id])
     end
 
     def to_s
