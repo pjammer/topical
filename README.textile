@@ -47,4 +47,4 @@ h2. Help and Support
 
 Use the github issues area for any bugs/features you'd like fixed/requested.  Update the Wiki too, if you would like to help other users out.
 
-Thanks.
+Thanks.  Oh and this code started out as code which was lifted from Eldorado in late 2007, which was BEAST code, if i'm not mistaken.  So I'll be using this as a refactor exercise eventually, but as always thanks to trevor turk and the Beast guys.
