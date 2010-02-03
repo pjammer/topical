@@ -13,9 +13,17 @@ Do the usual github stuff:
 script/plugin install git://github.com/pjammer/topical.git
 </pre>
 
-Copy the migration files (script pending)
+Copy the migration files to  your db/migrate directory (script pending)
+
 Change the two methods in lib/topical.rb based on the methods you use for user authentication plugin or gem.  These methods are:
-logged_in? and posting_user
+<pre>
+def logged_in? 
+  #put signed_in? here
+end
+def posting_user
+ #put current_user here
+end
+</pre>
 
 Adjust your User model (and any other model you'd like to access the forum, who need verification) to the following example:
 ------------------------
