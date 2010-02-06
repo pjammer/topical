@@ -46,6 +46,10 @@ end
 
 6. Topical has included a topical.css stylesheet for you, which you can use by including it in your layout file, or just cut and paste into your existing stylesheets. Whatever man, just do something with it.
 
+h2. ADMIN AREA is Unprotected
+
+Because Topical doesn't care about which Auth Plugin you use, it also can't predict what admin area protection  you use.  _Remember_ to add something to make sure cretins can't get at your Admin area shit. 
+
 h2. Help and Support
 
 Use the github issues area for any bugs/features you'd like fixed/requested.  Update the Wiki too, if you would like to help other users out.
