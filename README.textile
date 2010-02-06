@@ -8,16 +8,16 @@ You can even have two different 'types' of user models within the same app, say 
 h2. Installing the plugin
 
 Remember:  You should already have a USER model.
-Now, do the usual github stuff:
+1. Now, do the usual github plugin install:
 
 <pre>
 script/plugin install git://github.com/pjammer/topical.git
 </pre>
 
-Copy the migration files using
-    rake topical:sync
-
-Change the two methods in lib/topical.rb based on the methods you use for user authentication plugin or gem.  These methods are:
+2. Copy the migration files using
+<pre>rake topical:sync</pre>
+    
+3. Change the two methods in lib/topical.rb based on the methods you use for user authentication plugin or gem.  These methods are:
 <pre>
 def logged_in? 
   #put signed_in? here
@@ -27,7 +27,7 @@ def posting_user
 end
 </pre>
 
-Adjust your User model (and any other model you'd like to access the forum, who need verification) to the following example:
+4. Adjust your User model (and any other model you'd like to access the forum, who need verification) to the following example:
 <pre>
 class User < ActiveRecord::Base
   
@@ -40,8 +40,11 @@ class User < ActiveRecord::Base
 
 end
 </pre>
+5. You need to add this to your config.environment for now (i'll make this better soon)
+<pre>config.plugin_paths << ["#{RAILS_ROOT}/vendor/plugins/topical/vendor/plugins"]</pre> and stick this code snippet in application_controller.rb (Note: you may be using this helper_method line already, so just add the three below to it)
+<pre>helper_method :logged_in?, :time_ago_or_time_stamp, :can_edit?# include all helpers, all the time</pre>
 
-Lastly, Topical has included a topical.css stylesheet for you, which you can use or just cut and paste into your existing stylesheets. Whatever man, just do something with it.
+6. Topical has included a topical.css stylesheet for you, which you can use by including it in your layout file, or just cut and paste into your existing stylesheets. Whatever man, just do something with it.
 
 h2. Help and Support
 

@@ -1,7 +1,7 @@
 class ForumsController < ApplicationController
   unloadable
   before_filter :load_forum, :only => [:show]
-  layout "static"
+  
   # GET /forums
   # GET /forums.xml
   def index

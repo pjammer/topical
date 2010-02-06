@@ -1,8 +1,7 @@
 class Admin::ForumsController < ApplicationController
   unloadable
-  before_filter :authenticate_area
+  # before_filter :authenticate_area
   # before_filter :has_role_admin
-  layout "static"
   # GET /forums
   # GET /forums.xml
   def index

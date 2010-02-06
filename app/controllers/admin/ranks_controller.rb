@@ -1,7 +1,6 @@
 class Admin::RanksController < ApplicationController
-  before_filter :authenticate_area
+  # before_filter :authenticate_area
   # before_filter :has_role_admin
-  layout "static"
   # GET /ranks
   # GET /ranks.xml
   def index
